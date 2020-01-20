@@ -1,0 +1,23 @@
+.breadcrumbs {
+  color: $color-primary;
+  margin: 0 5px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: bold;
+
+  &:first-child {
+    margin-left: 1.5%;
+  }
+
+  &__icon {
+    display: inline-flex;
+    vertical-align: bottom;
+  }
+
+  &.last {
+    cursor: default;
+  }
+}
+
+
+

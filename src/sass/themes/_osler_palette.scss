@@ -1,0 +1,112 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-primary: (
+  50 : #e8eaf6,
+  100 : #c5cbe9,
+  200 : #9fa8da,
+  300 : #7985cb,
+  400 : #5c6bc0,
+  500 : #3f51b5,
+  600 : #394aae,
+  700 : #3140a5,
+  800 : #29379d,
+  900 : #1b278d,
+  A100 : #c6cbff,
+  A200 : #939dff,
+  A400 : #606eff,
+  A700 : #4757ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  ),
+  backgound: #000000
+);
+
+$md-secondary: (
+  50 : #fff0e4,
+  100 : #ffd8bb,
+  200 : #ffbf8e,
+  300 : #ffa560,
+  400 : #ff913e,
+  500 : #ff7e1c,
+  600 : #ff7619,
+  700 : #ff6b14,
+  800 : #ff6111,
+  900 : #ff4e09,
+  A100 : #ffffff,
+  A200 : #fff7f5,
+  A400 : #ffd0c2,
+  A700 : #ffbda8,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  ),
+  backgound: #000000
+);
+
+$mat-grey: (
+  50 : #ff8d8d,
+  100 : #e6e6e6,
+  200 : #d5d5d5,
+  300 : #c4c4c4,
+  400 : #b7b7b7,
+  500 : #aaaaaa,
+  600 : #a3a3a3,
+  700 : #999999,
+  800 : #909090,
+  900 : #7f7f7f,
+  A100 : #ffffff,
+  A200 : #fbdddd,
+  A400 : #ffa7a7,
+  A700 : #ff8d8d,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$color-primary: mat-palette($md-primary);
+$color-secondary: mat-palette($md-secondary);
+$osler-theme: mat-light-theme($color-primary, $color-secondary);
+
+@include angular-material-theme($osler-theme);
+

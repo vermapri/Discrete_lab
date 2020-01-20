@@ -1,0 +1,31 @@
+@import "../abstracts/variables";
+
+$height: 50px;
+
+.osler-tooltip.mat-tooltip {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 14px;
+  height: $height;
+  line-height: $height - 10;
+}
+
+.dashboard__tooltip.mat-tooltip {
+  background: $color-secondary;
+  color: $color-white;
+  position: relative;
+  left: 10px;
+}
+
+.action__tooltip.mat-tooltip {
+  background: $color-primary;
+  color: $color-white;
+}
+
+.add__tooltip.mat-tooltip {
+  background: $color-white;
+  color: $color-secondary;
+  box-shadow: 0 0 10px #aaa;
+}

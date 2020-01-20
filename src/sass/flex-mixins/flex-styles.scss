@@ -1,0 +1,144 @@
+/* These mixins are replacement of Flex Layout*/
+
+// Given css will be added only for the specified size classes.
+@mixin pl-only-for-screen-sizes($sizes...) {
+  @if (length($sizes) > 0) {
+    $selectors: ();
+    @each $size in $sizes {
+      $selectors: join(
+          $selectors,
+          unquote(":host-context(.#{$size}) & "),
+          comma
+      );
+    }
+    #{$selectors} {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// For DOM containers
+// Replacement of fxLayout
+// eg, fxLayout="row" -> @include pl-fx-layout(row)
+// eg, fxLayout.xs="row" -> @include pl-fx-layout(row, xs)
+@mixin pl-fx-layout($direction, $sizes...) {
+  @include pl-only-for-screen-sizes($sizes...) {
+    display: flex;
+    flex-direction: $direction;
+  }
+}
+
+// For DOM containers
+// Replacement of fxLayout with fxLayoutGap
+// eg, fxLayout="row" fxLayoutGap="10px" -> @include pl-fx-layout-with-gap(row, 10px)
+// eg, fxLayout.xs="row" fxLayoutGap.xs="10px" -> @include pl-fx-layout-with-gap(row, 10px, xs)
+@mixin pl-fx-layout-with-gap($direction, $value, $sizes...) {
+  @include pl-fx-layout($direction, $sizes...);
+  @include pl-only-for-screen-sizes($sizes...) {
+    @if ($direction == row) {
+      > * {
+        margin-right: $value;
+      }
+      > *:last-child {
+        margin-right: 0;
+      }
+    } @else if ($direction == column) {
+      > * {
+        margin-bottom: $value;
+      }
+      > *:last-child {
+        margin-bottom: 0;
+      }
+    } @else if ($direction == reverse-row) {
+      > * {
+        margin-left: $value;
+      }
+      > *:last-child {
+        margin-left: 0;
+      }
+    } @else if ($direction == reverse-column) {
+      > * {
+        margin-top: $value;
+      }
+      > *:last-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// For DOM elements
+// Replacement of fxFill
+// eg, fxFill -> @include pl-fx-fill()
+// eg, fxFill.gt-md -> @include pl-fx-fill(lg, xl)
+@mixin pl-fx-fill($sizes...) {
+  @include pl-only-for-screen-sizes($sizes...) {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlex="basis"
+// eg, fxFlex="400px" -> @include pl-fx-flex(400px)
+@mixin pl-fx-flex($basis, $sizes...) {
+  @include pl-only-for-screen-sizes($sizes...) {
+    flex-basis: $basis;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlex="grow shrink basis"
+// eg, fxFlex="1 1 auto" -> @include pl-fx-flex--gsb(1, 1, auto)
+@mixin pl-fx-flex--gsb($grow, $shrink, $basis, $sizes...) {
+  @include pl-only-for-screen-sizes($sizes...) {
+    flex-basis: $basis;
+    flex-grow: $grow;
+    flex-shrink: $shrink;
+  }
+}
+
+// For DOM containers
+// Replacement of fxLayoutAlign
+// eg, fxLayoutAlignment="start center" -> @include pl-fx-layout-alignment(start, center)
+@mixin pl-fx-layout-alignment(
+  $main-axis-alignment,
+  $cross-axis-alignment,
+  $sizes...
+) {
+  @include pl-only-for-screen-sizes($sizes...) {
+    justify-content: $main-axis-alignment;
+    align-items: $cross-axis-alignment;
+    align-content: $cross-axis-alignment;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlexAlign
+// eg, fxFlexAlign="start" -> @include pl-fx-flex-align(start)
+@mixin pl-fx-flex-align($direction, $sizes...) {
+  @include pl-only-for-screen-sizes($sizes...) {
+    align-self: $direction;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlexOffset
+// eg, fxFlexOffset="10%" -> @include pl-fx-flex-offset(10%)
+// eg, fxFlexOffset.sm-lg="10%" -> @include pl-fx-flex-offset(10%, xs, sm, md)
+@mixin pl-fx-flex-offset($value, $sizes...) {
+  @include pl-only-for-screen-sizes($sizes...) {
+    margin-left: $value;
+  }
+}
+
+// For DOM elements
+// TO assign weights to child elements and divide space in terms of numbers.
+@mixin pl-fx-weight($value, $sizes...) {
+  @include pl-fx-flex--gsb($value, $value, 0, $sizes...);
+}

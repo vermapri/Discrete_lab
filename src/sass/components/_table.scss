@@ -1,0 +1,123 @@
+@import "../flex-mixins/flex-styles";
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+
+.table {
+  width: 100%;
+  box-shadow: none;
+  cursor: pointer;
+  padding-bottom: 60px;
+
+  @include osler-scrollbar($color-primary, $color-primary-light);
+  mat-header-cell {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+    background: $color-white;
+    font-weight: bold;
+    color: $color-primary;
+    align-self: stretch;
+    font-size: 18px;
+    border-bottom: 2px solid $color-primary;
+
+    &:first-child {
+      text-align: left;
+      justify-content: flex-start;
+    }
+    &:last-child {
+      justify-content: flex-end;
+    }
+
+    button {
+      @extend .outline-zero
+    }
+  }
+  mat-cell {
+    font-size: 16px;
+    font-weight: 500;
+    align-self: stretch;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 60px;
+    background: $color-white;
+
+    &:first-child {
+      justify-content: flex-start;
+    }
+    &:last-child {
+      justify-content: flex-end;
+      margin-bottom: 0;
+    }
+
+  }
+
+  .measure-codes {
+    display: flex;
+    height: 100%;
+  }
+
+  &.no-actions{
+    mat-header-cell:last-child {
+      justify-content: flex-start;
+    }
+    mat-cell:last-child {
+      justify-content: flex-start;
+    }
+  }
+
+  &.selection{
+    mat-header-cell {
+      justify-content: center;
+    }
+    mat-cell {
+      justify-content: center;
+    }
+  }
+
+  .text-cell-null{
+    color: #808080;
+  }
+  .hidden{
+    display: none;
+  }
+
+}
+
+.mat-sort-header-container{
+  button {
+    letter-spacing: 3px;
+  }
+}
+
+table.table td{
+  vertical-align: middle;
+}
+
+.patient-simple-table {
+  width: 70%;
+  margin-left: 2%;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  color: $color-primary;
+
+  tr td {
+    width: 60%;
+    padding: 10px 0;
+    font-size: large;
+    border-left: none;
+    border-right: none;
+
+  }
+
+  tr td, tr th {
+    border: 1px solid #818181;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: $color-primary;
+
+  }
+
+  tr th {
+    min-width: 180px;
+    font-weight: bold;
+  }
+}

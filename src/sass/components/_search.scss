@@ -1,0 +1,7 @@
+@import "../flex-mixins/flex-styles";
+
+.search__container {
+  @include pl-fx-flex-align(flex-end);
+  margin: 30px 5% 30px 0;
+  width: 45%;
+}

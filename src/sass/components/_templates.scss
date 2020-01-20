@@ -1,0 +1,44 @@
+@import "../../sass/abstracts/variables";
+@import "../../sass/flex-mixins/flex-styles";
+
+.label-format {
+  font-size: large;
+  width: 100%;
+  padding: 10px 0;
+  border-left: none;
+  border-right: none;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+.template-listing {
+  @include pl-fx-layout-with-gap(column, 10px);
+  mat-label {
+    font-size: 15px;
+    border-bottom: 1px solid $color-primary;
+    cursor: pointer;
+  }
+}
+
+.table-template {
+  tr td, tr th {
+    border: 1px solid #818181;
+    padding: 10px 15px;
+  }
+
+  tr td {
+    width: 100%;
+    mat-icon{
+      color: $color-primary;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 200ms ease-out;
+
+      &:hover {
+        cursor: pointer;
+        transition: all 200ms ease-in;
+        transform: scale(1.3);
+      }
+    }
+  }
+}

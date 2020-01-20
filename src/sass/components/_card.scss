@@ -1,0 +1,105 @@
+@import "../flex-mixins/flex-styles";
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.osler-container {
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+// data cards
+.osler-basic-data-card {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.19) !important;
+  width: 97%;
+  max-height: calc(100% - 60px);
+  min-height: calc(100% - 60px);
+  height: auto;
+  margin: 20px 1.5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0;
+  background: $color-white;
+
+  &.have-filters {
+    width: calc(97% - 60px);
+  }
+
+  @include osler-scrollbar($color-primary, $color-primary-light);
+
+}
+
+.osler-data-card.mat-card {
+  @extend .osler-basic-data-card;
+}
+
+.osler-data-div {
+  @extend .osler-basic-data-card;
+}
+
+.card-padding {
+  padding: 20px;
+}
+
+.inner-card-holder {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__card {
+    box-sizing: border-box;
+    margin-bottom: 30px;
+  }
+}
+
+//Edit cards
+.osler-edit-card {
+  padding: 0;
+  height: 100%;
+
+  &__form-container {
+    overflow-y: hidden;
+    //overflow-y: scroll;
+    //@include osler-scrollbar($color-primary, $color-primary-light);
+    //height: 97%;
+  }
+  &__form {
+    height: auto;
+    margin: 20px 1.5%;
+    form {
+      margin: 10px 30px;
+      mat-form-field {
+        @extend .date-picker;
+        font-family: 'Montserrat', sans-serif;
+        width: 100%;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.osler-card-width-100 {
+  width: 97%;
+}
+
+.osler-card-width-50 {
+  width: 47%;
+}
+
+.osler-card-padding.mat-card {
+  padding: 30px;
+}
+
+//card center spinners
+.card-spinner.mat-spinner {
+  @include pl-fx-layout-alignment(center,center);
+  @include absCenter();
+  color: $color-primary-dark;
+}
+
+.card-loading-spinner {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+}

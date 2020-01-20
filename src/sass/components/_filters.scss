@@ -1,0 +1,84 @@
+@import "../abstracts/variables";
+@import "../base/typography";
+@import "../flex-mixins/flex-styles";
+@import "../abstracts/mixins";
+
+$height-side-button: 60px;
+$padding-side-button: 60px;
+.side-filter-button {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(95px) rotate(-90deg);
+  background: $color-primary;
+  color: $color-white;
+  height: $height-side-button;
+  line-height: $height-side-button;
+  padding-left: $padding-side-button;
+  padding-right: $padding-side-button;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 7px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.side-filter {
+  @include osler-scrollbar($color-primary, $color-primary-light);
+  position: fixed;
+  right: -100%;
+  top: 136px;
+  z-index: 1099;
+  width: 400px;
+  background: $color-white;
+  box-shadow: -2px 0 20px #aaa;
+  height: calc(96% - 140px);
+  overflow: hidden;
+  overflow-y: scroll;
+  border: 2px solid $color-primary;
+
+  &-header {
+    min-height: 50px;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    background: $color-primary;
+
+    span.close-tab {
+      @include filter-close-button();
+      color: white;
+    }
+
+    h4 {
+      margin-left: 10px;
+      color: white;
+      font-size: medium;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+  }
+
+  &-content {
+    padding: 10px;
+    margin: 80px 10px 10px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    .filter-item {
+      @extend .date-picker;
+      min-height: 50px;
+      margin-bottom: 5px;
+
+    }
+
+  }
+}

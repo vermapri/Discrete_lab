@@ -1,0 +1,175 @@
+@import "../abstracts/variables";
+@import "../base/typography";
+
+.button-osler.mat-raised-button {
+  @extend .outline-zero;
+  // margin-top: 3%;
+  height: 3.4rem;
+  background-color: $color-button-primary;
+  color: $color-white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: $default-font-size;
+
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
+
+  &__white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &__green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+    transform: translateY(0);
+  }
+}
+
+.osler-fabicon.mat-icon {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  height: 70px;
+  line-height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background: $color-primary;
+  right: 30px;
+  bottom: 30px;
+  box-shadow: 0 4px 4px #999;
+  z-index: 100;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.with-filters {
+    right: 100px;
+    bottom: 40px;
+
+    &.second {
+      right: 180px;
+    }
+  }
+}
+
+.action-icon.mat-icon {
+  @extend .outline-zero;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  background: $color-secondary;
+  border-radius: 4px;
+  text-align: center;
+  color: $color-white;
+  margin: 7px 5px;
+  transition: all 200ms ease-out;
+
+  &:hover {
+    cursor: pointer;
+    background: $color-secondary-dark;
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+  }
+}
+
+.action-icon.svg-icon{
+  padding: 1rem;
+}
+
+.vital-red-chip {
+  background-color: red !important;
+  color: white !important;
+  border-radius: 5px !important;
+  font-size: 16px;
+}
+
+.disable-icon.mat-icon {
+  background: $color-grey-dark;
+
+
+  &:hover {
+    cursor: not-allowed;
+    background: $color-grey-dark-2;
+    transform: scale(1);
+  }
+}

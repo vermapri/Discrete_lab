@@ -1,0 +1,228 @@
+@import "functions";
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin fixCenter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin topCenter {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin bottomCenter {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin osler-scrollbar($bg-color,$bg-color-hover) {
+  &::-webkit-scrollbar {
+    width: 4px;
+    &-track {
+      background: transparent;
+    }
+    &-thumb {
+      background: $bg-color;
+      border-radius: 10px;
+      &:hover {
+        // background: $bg-color-hover;
+      }
+    }
+  }
+}
+
+/// Gives a card depth effect.
+/// @param {Number} $depth - depth level (between 1 and 5)
+/// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+/// @requires {function} top-shadow
+/// @requires {function} bottom-shadow
+
+@mixin box-shadow-mixin($depth) {
+  @if $depth < 1 {
+    box-shadow: none;
+  } @else if $depth > 5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  } @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);
+  }
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (min-width: 25em) {
+      @content
+    }
+  ; //400px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (min-width: 37.5em) {
+      @content
+    }
+  ; //600px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (min-width: 56.25em) {
+      @content
+    }
+  ; //900px
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 75em) {
+      @content
+    }
+  ; //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content
+    }
+  ; //1800
+  }
+}
+
+@mixin mat-icon-size($size) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+}
+
+@mixin set-column-width($col-width, $height) {
+  display: block !important;
+  width: $col-width !important;
+  min-width: $col-width !important;
+  max-width: $col-width !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  line-height: $height !important;
+  height: $height !important;
+  padding-right: 10px !important;
+}
+
+@mixin set-column-width-without-ellipses($col-width, $height) {
+  display: block !important;
+  width: $col-width !important;
+  min-width: $col-width !important;
+  max-width: $col-width !important;
+  //line-height: $height !important;
+  height: $height !important;
+  padding-right: 10px !important;
+  overflow-wrap: break-word !important;
+  margin-left: auto;
+  //contact-text-align: center!important;
+  //justify-content: center!important;
+  //overflow: hidden !important;
+  //white-space: nowrap !important;
+  //contact-text-overflow: ellipsis !important;
+}
+
+$header: "mat-header-cell";
+$cell: "mat-cell";
+@mixin set-width($col,$width) {
+  #{$header}:nth-child(#{$col}) {
+    @include set-column-width($width, 70px)
+  }
+  #{$cell}:nth-child(#{$col}) {
+    @include set-column-width($width, 60px)
+  }
+}
+
+@mixin set-width-last-child($width) {
+  #{$header}:last-child {
+    @include set-column-width($width, 70px)
+  }
+  #{$cell}:last-child {
+    @include set-column-width($width, 60px)
+  }
+
+  mat-header-cell:last-child {
+    text-align: right;
+    margin-right: 1rem;
+  }
+  mat-cell:last-child {
+    text-align: right;
+    margin-right: 1rem;
+  }
+}
+
+@mixin set-width-without-ellipses($col, $width) {
+  #{$header}:nth-child(#{$col}) {
+    @include set-column-width-without-ellipses($width, 70px);
+    line-height: 30px !important;
+  }
+  #{$cell}:nth-child(#{$col}) {
+    @include set-column-width-without-ellipses($width, 60px);
+    text-align: center;
+    line-height: 60px !important;
+  }
+}
+
+@mixin close-button {
+  height: 50px !important;
+  width: 50px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease-in;
+  &:hover {
+    cursor: pointer;
+    background: #ddd;
+    transition: all 200ms ease-out;
+  }
+}
+
+@mixin filter-close-button {
+  height: 50px !important;
+  width: 50px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease-in;
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 200ms ease-out;
+  }
+}
+
+
+

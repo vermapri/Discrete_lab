@@ -1,0 +1,98 @@
+@import "../flex-mixins/flex-styles";
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+@import "../themes/default";
+
+.landing-container {
+  @include absCenter;
+  @include pl-fx-layout-with-gap(column, 15px);
+  @include pl-fx-layout-alignment(center, center);
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: $color-primary;
+
+  img.background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0.3;
+  }
+}
+
+.landing-card {
+  width: 50%;
+
+  &__content.mat-card-content {
+    @include pl-fx-layout(row);
+
+    .logo {
+      text-align: center;
+      @include pl-fx-flex-align(center);
+      @include pl-fx-flex--gsb(1, 1, 50%);
+      img {
+        height: 100px;
+      }
+    }
+
+    .data {
+      text-align: center;
+      @include pl-fx-flex-align(center);
+      @include pl-fx-flex--gsb(1, 1, 50%);
+
+      &__title {
+        text-align: left;
+        margin: 30px auto 10px auto;
+        font-size: 45px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        font-family: 'Montserrat', sans-serif !important;
+      }
+
+      &__subtitle {
+        text-align: left;
+        margin: 10px auto auto auto;
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif !important;
+      }
+
+      &__form {
+        @include pl-fx-layout(column);
+        @include pl-fx-fill();
+        .form-field {
+          width: 70%;
+          margin-top: 15px;
+        }
+
+        button {
+          margin: 30px auto 30px 0;
+          font-size: 1.5rem;
+          background-color: $color-primary;
+          color: $color-white;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          padding: 7px 40px 7px 40px;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    text-align: right;
+    a {
+      color: $color-primary-light;
+      text-decoration: none !important;
+      margin-bottom: 13px;
+      margin-right: 25px;
+      font-size: 1.2rem;
+    }
+    .existing-text {
+      font-size: 14px;
+    }
+  }
+}
+
+
+

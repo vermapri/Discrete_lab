@@ -1,0 +1,202 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 3rem !important;
+  }
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 5rem !important;
+  }
+}
+
+.u-margin-top-big {
+  margin-top: 8rem !important;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
+
+.action-width {
+  max-width: 250px !important;
+  min-width: 250px !important;
+}
+
+.action-width-300 {
+  max-width: 300px !important;
+  min-width: 300px !important;
+}
+
+.action-width-340 {
+  max-width: 340px;
+  min-width: 340px;
+}
+
+.action-width-150 {
+  max-width: 150px !important;
+  min-width: 150px !important;
+}
+.action-width-180 {
+  max-width: 180px !important;
+  min-width: 180px !important;
+}
+
+.serial-width {
+  max-width: 80px !important;
+}
+
+.osler-card {
+  display: flex;
+  flex-direction: column !important;
+  height: 100%;
+  overflow: hidden;
+  background: $color-grey-background !important;
+
+  &-list {
+    padding-top: 0;
+    // display: flex;
+    // flex-direction: column;
+    flex: 1;
+    // background: $color-grey-background;
+  }
+}
+
+.osler-table-row{
+  :hover{
+    background-color: #f1f1f1;
+  }
+}
+
+mat-input, mat-card, mat-radio-button {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.mat-dialog-container, .mat-dialog-content {
+  @include osler-scrollbar($color-secondary, $color-secondary-light);
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-icon {
+  @include close-button();
+}
+
+.close-icon {
+  position: relative;
+  transform: translateY(-25%) translateX(25%);
+}
+
+.outline-zero {
+  outline: none !important;
+}
+
+.mat-standard-chip.mat-chip {
+  height: auto;
+}
+
+.subscribe .mat-slide-toggle-thumb {
+  background-color: $color-grey-dark;
+  opacity: 1;
+}
+
+.mat-snack-bar-container.alert-success {
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  color: #3c763d;
+}
+
+.mat-snack-bar-container.alert-error {
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: #a94442;
+}
+
+.alert .mat-simple-snackbar {
+  justify-content: center;
+}
+
+
+.patient-detail {
+
+  .mat-tab-label.mat-tab-label-active{
+    background-color: $color-secondary;
+    opacity: 1;
+
+    h2 {
+      color: white;
+      font-size: 18px;
+    }
+  }
+
+  .mat-tab-label {
+    background-color: $color-grey-background;
+    opacity: 1;
+
+    h2 {
+      color: $color-primary;
+      font-size: 18px;
+    }
+  }
+
+  .mat-tab-header {
+    border-bottom: none;
+  }
+
+  .mat-tab-group.mat-primary .mat-ink-bar{
+    background-color: $color-secondary;
+
+  }
+  div.mat-tab-body-content{
+    height: 100%;
+    overflow-y:auto;
+    @include osler-scrollbar($color-secondary, $color-secondary-light);
+  }
+}
+.sidenav {
+  div.mat-drawer-inner-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    @include osler-scrollbar($color-primary-dark, $color-primary-light);
+  }
+}
+
+.ng5-slider {
+  .ng5-slider-pointer, .ng5-slider-selection {
+    background-color: $color-secondary !important;
+  }
+
+  .ng5-slider-pointer {
+    &:hover, &:focus {
+     &:after {
+       background-color: $color-secondary-dark !important;
+     }
+    }
+  }
+}
+
+.time-form {
+  .mat-form-field-infix {
+    width: 100%;
+  }
+}

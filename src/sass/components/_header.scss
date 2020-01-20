@@ -1,0 +1,70 @@
+@import "../abstracts/variables";
+@import "../base/typography";
+@import "../flex-mixins/flex-styles";
+
+.header__osler {
+  //color: $color-white;
+  //background-color: $color-primary;
+  //@include pl-fx-layout(column);
+  //@include pl-fx-layout-alignment(center);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+  font-weight: bold;
+  height: 70px;
+  width: 100%;
+  display: flex !important;
+  align-items: center;
+  color: $color-white;
+  justify-content: center;
+  text-transform: uppercase;
+  background: $color-primary;
+  margin-bottom: 0 !important;
+  position: relative;
+
+  .back-button {
+    height: 70px;
+    position: absolute;
+    left: 3%;
+    display: inline-block;
+    align-self: center !important;
+    width: 30px !important;
+    line-height: 70px;
+    cursor: pointer;
+    outline: 0;
+  }
+
+}
+
+.header-osler-secondary h1 {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3% 3% 30px 3%;
+
+  .action-icons .mat-icon {
+    position: relative;
+    cursor: pointer;
+    margin-left: 30px;
+    color: $color-secondary;
+    @include mat-icon-size(40px);
+  }
+}
+
+.popup-head{
+  @include pl-fx-layout(row);
+  @include pl-fx-layout-alignment(space-between, center);
+
+  h2 {
+    @include pl-fx-flex-align(flex-end);
+    margin: 20px;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+
+.vitals-date-header{
+  color: $color-primary;
+  padding: 10px 0;
+  background-color: #F0F0F0;
+}

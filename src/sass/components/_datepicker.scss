@@ -1,0 +1,13 @@
+@import "../abstracts/variables";
+@import "../base/typography";
+@import "../flex-mixins/flex-styles";
+@import "../abstracts/mixins";
+
+.date-picker {
+  mat-datepicker-toggle {
+    button {
+      @extend .outline-zero
+    }
+  }
+
+}

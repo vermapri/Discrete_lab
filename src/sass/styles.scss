@@ -1,0 +1,29 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import "base/base";
+@import "base/helpers";
+@import "base/typography";
+@import "base/utilities";
+@import "components/buttons";
+@import "components/breadcrumbs";
+@import "components/card";
+@import "components/filters";
+@import "components/header";
+@import "components/input";
+@import "components/search";
+@import "components/table";
+@import "components/tooltips";
+@import "components/icons";
+@import "components/datepicker";
+@import "components/error";
+@import "components/landing";
+@import "components/templates";
+@import "flex-mixins/flex-styles";
+@import "themes/osler_palette";
+@import "themes/default";
+//@import "~bootstrap/scss/bootstrap.scss";
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+@import url('../../src/assets/fonts/icomoon.scss');
+
+

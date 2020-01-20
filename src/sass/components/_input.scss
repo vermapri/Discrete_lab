@@ -1,0 +1,40 @@
+@import "../abstracts/variables";
+@import "../base/typography";
+
+.input {
+  &__login {
+    font-family: inherit;
+    font-size: 2rem;
+    color: inherit;
+    background-color: $color-grey-light-2;
+    border: none;
+    padding: 2rem 3rem;
+    border-radius: 100px;
+    width: 100%;
+    transition: all .2s;
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: $color-grey-dark;
+    }
+  }
+
+  &__text {
+    width: 90%;
+    padding: 1rem;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+}

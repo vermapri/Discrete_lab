@@ -1,0 +1,23 @@
+<h3>
+   Details
+</h3>
+<app-header></app-header>
+<br>
+
+<div *ngIf="details.admin">
+  <h1 class="admin"> Welcome Admin</h1>
+  <h1>USERS:</h1>
+  <div *ngFor="let user of users">
+    <h2>
+       {{user.details.name}}
+    </h2>
+  </div>
+</div>
+
+<div *ngIf="!details.admin">
+  <h1>Welcome {{details.name}}</h1>
+
+</div>
+
+
+
